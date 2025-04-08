@@ -18,12 +18,16 @@
     font-style: normal;
 }
 
+html {
+    overflow: hidden;
+}
+
 body {
     font-family:'Georama-SemiBold';
     height: 100vh;
     width: 100vw;
     position: relative;
-    overflow: auto;
+    overflow: hidden;
 }
 
 #bg-video {
