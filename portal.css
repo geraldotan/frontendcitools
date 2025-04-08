@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Georama-SemiBold';
+    src: url('font/static/Georama-SemiBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Georama-ExtraLight';
+    src: url('font/static/Georama-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family:'Georama-SemiBold';
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    overflow: auto;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(0px);
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    padding-top: 20vh;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.fl-logo-img {
+    height: 50px;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.menu a {
+    display: block;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    background-color: #f4f4f4;
+}
+
+.navbar-toggle {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.menu.visible {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 0;
+    padding: 20px 20px;
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes wobble {
+    0%   { transform: rotate(0deg); }
+    15%  { transform: rotate(3deg); }
+    30%  { transform: rotate(-3deg); }
+    45%  { transform: rotate(2deg); }
+    60%  { transform: rotate(-2deg); }
+    75%  { transform: rotate(1deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .header h1 {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: -50px 0 10px 0;
+    font-size: 5rem;
+    text-align: center;
+    cursor: pointer;
+    transform-origin: center;
+  }
+
+  .header h1::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: 40px;
+  }
+  
+  .header h1:hover {
+    animation: wobble 1.2s infinite ease-in-out;
+    cursor: pointer;
+  }
+  
+.header p {
+    max-width: 80%;
+    text-align: center;
+    margin-bottom: 0px;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding-left: 0;
+    }
+
+    .header h1, 
+    .header p {
+        width: 90%;
+    }
+}
+
+.welcome-container {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 5%,
+        rgba(255, 255, 255, 0.2) 8%,
+        rgba(255, 255, 255, 0.4) 11%,
+        rgba(255, 255, 255, 0.6) 14%,
+        rgba(255, 255, 255, 0.8) 17%,
+        rgba(255, 255, 255, 0.9) 20%,
+        white 25%,
+        white 100%
+    );
+    color: #000000;
+    text-align: center;
+    padding: 35px 20px;
+    margin: 0 auto;
+    margin-top: -170px;
+    width: 100%;
+    height: 900px;
+    border-radius: 0px;
+    position: relative;
+    z-index: 10;
+}
+
+.tool-section-header {
+    margin-top: 200px;
+    text-align: left;
+    margin-bottom: 0px;
+    color: #000000;
+}
+
+.tool-section-header h1 {
+    color:rgb(173, 0, 0);
+    font-size: 2.3em;
+    margin-bottom: 10px;
+}
+
+.tool-section-header p {
+    font-style:unset;
+    font-size: 2.8em;
+    color: #015804;
+}
+
+.tool-card-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 50px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 50px;
+  }
+  
+  .tool-card {
+    margin-left: 50px;
+    margin-right: 50px;
+    flex: 0 0 auto;
+    width: 300px;
+    scroll-snap-align: start;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.197);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .tool-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  }
+
+.tool-button-container {
+    margin-top: 20px;
+    pointer-events: auto;
+}
+
+.tool-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.tool-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tool-description {
+    font-family: 'Georama-ExtraLight';
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+}
+
+.tool-button {
+    font-family: 'Georama-SemiBold';
+    background-color: rgb(52, 136, 75);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tool-button:hover {
+    background-color: #0056b3;
+}
+
+.welcome-container2 {
+    background-color: rgb(52, 136, 75);
+    color: #000000;
+    text-align: center;
+    padding: 35px 20px;
+    margin: 0 auto;
+    margin-top: -60px;
+    width: 100%;
+    height: 400px;
+    border-radius: 0px;
+    position: relative;
+    z-index: 10;
+}
+
+.fl-logo-img1 {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 20px auto 20px auto;
+  }
+  
+.footer-info {
+    text-align: center;
+  }
+  
+  .footer-info h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  
+  .footer-info p {
+    margin-top: 30px;
+    color: #ffffff;
+    margin: 4px 0;
+    font-size: 1.5rem;
+  }
+
+  .footer-info p1 {
+    font-family: 'Georama-ExtraLight';
+    color: #ffffff;
+    margin: 4px 0;
+    font-size: 1.3rem;
+  }
+  
+  .footer-links {
+    font-family: 'Georama-ExtraLight' !important;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .footer-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .footer-links a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+  }
