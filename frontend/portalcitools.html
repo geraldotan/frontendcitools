@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPIL CI Tools Portal</title>
+  <link rel="stylesheet" href="portal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Video Background-->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="video/ocean-720p-low.webm" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="https://www.spil.co.id/">
+      <img class="fl-logo-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2m56CV5--5jlq0_kkS0XWrw_jLEeMVVbBDw&s" alt="Kampus Kwik Kian Gie">
+    </a>
+    <!-- Menu Hamburger -->
+    <button type="button" class="navbar-toggle navbar-toggler" id="hamburger">
+      <span><i class="fas fa-bars" aria-hidden="true"></i><span class="sr-only">Menu</span></span>
+    </button>
+    <!-- Menu -->
+    <div class="menu fl-page-nav-collapse" id="menu">
+      <a href="#" onclick="scrollToSection('.welcome-container')">CI Tools</a>
+      <a href="#" onclick="scrollToSection('.welcome-container2')">Contacts</a>
+    </div>
+  </nav>
+
+
+
+  <!-- Header -->
+  <header class="header">
+    <h1>SPIL CI Tools Portal</h1>
+  </header>
+
+
+
+  <!-- CI Tools Section -->
+  <div class="welcome-container">
+    <!-- Tulisan sebelum daftar tools -->
+    <div class="tool-section-header">
+      <h1>CI Tools</h1>
+      <p>Various CI Tools Available</p>
+    </div>
+    <!-- Container untuk semua kartu -->
+    <div class="tool-card-container">
+      <!-- Tool 1 -->
+      <div class="tool-card">
+        <img src="photo/excel.jpeg" alt="Tool Image" class="tool-image">
+        <h2 class="tool-title">Tool 1</h2>
+        <p class="tool-description">Ini adalah deskripsi singkat tentang fungsi dan penggunaan tool ini.</p>
+        <div class="tool-button-container">
+          <button class="tool-button">Pelajari</button>
+        </div>
+      </div>
+      <!-- Tool 2 -->
+      <div class="tool-card">
+        <img src="photo/excel.jpeg" alt="Tool Image" class="tool-image">
+        <h2 class="tool-title">Tool 2</h2>
+        <p class="tool-description">Ini adalah deskripsi singkat tentang fungsi dan penggunaan tool ini.</p>
+        <div class="tool-button-container">
+          <button class="tool-button">Pelajari</button>
+        </div>
+      </div>
+      <!-- Tool 3-->
+      <div class="tool-card">
+        <img src="photo/excel.jpeg" alt="Tool Image" class="tool-image">
+        <h2 class="tool-title">Tool 3</h2>
+        <p class="tool-description">Ini adalah deskripsi singkat tentang fungsi dan penggunaan tool ini.</p>
+        <div class="tool-button-container">
+          <button class="tool-button">Pelajari</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <!-- Contacts Section -->
+  <div class="welcome-container2">
+    <div class="footer-info">
+      <img class="fl-logo-img1" src="photo/spil_logo.581f4306.svg">
+      <h3>PT Salam Pacific Indonesia Lines</h3>
+      <p>SPIL Customer Service</p>
+      <p1>Call : 081-163-3388 | Whatsapp : 081-133-3799</p1>
+      <div class="footer-links">
+        <a href="https://www.spil.co.id/en/about-spil">About</a>
+        <a href="https://www.spil.co.id/en/myspil">mySPIL.com</a>
+        <a href="http://spil.co.id/en/spildex">SPILDex</a>
+        <a href="https://www.spil.co.id/en/contact">Contact Us</a>
+        <a href="https://www.spil.co.id/sitemap/">Sitemap</a>
+        <a href="https://www.spil.co.id/en/news">SPILNews</a>
+        <a href="https://www.spil.co.id/en/careers">Career</a>
+        <a href="https://www.spil.co.id/en/insight">Insight</a>
+        <a href="https://www.spil.co.id/en/company/group">SPIL Group</a>
+      </div>
+    </div>
+  </div>
+  
+
+
+  <!-- Script -->
+  <script>
+
+    // Tombol Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    hamburger.addEventListener('click', function() {
+      menu.classList.toggle('visible'); // Toggle visibilitas menu saat hamburger diklik
+      const textBoxes = document.querySelectorAll('.text-box');
+      textBoxes.forEach(box => box.classList.remove('visible')); // Hide other boxes
+    });
+    
+
+
+    // a href ke class dalam 1 page HTML
+    function scrollToSection(selector) {
+    const target = document.querySelector(selector);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  </script>
+
+</body>
+</html>
