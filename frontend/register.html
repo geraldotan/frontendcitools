@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Portal CI Tools</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="video/ocean-720p-low.webm" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="https://www.spil.co.id/">
+      <img
+        class="fl-logo-img"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2m56CV5--5jlq0_kkS0XWrw_jLEeMVVbBDw&s"
+        alt="SPIL"
+      />
+    </a>
+
+    <!-- Hamburger Menu -->
+    <button type="button" class="navbar-toggle" id="hamburger">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Menu -->
+    <div class="menu" id="menu">
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <!-- Register Container -->
+  <div class="register-container">
+    <h1>Register</h1>
+    <form id="register-form">
+      <label for="username">E-Mail:</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Register</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.getElementById("hamburger");
+      const menu = document.getElementById("menu");
+
+      hamburger.addEventListener("click", function () {
+        menu.classList.toggle("visible");
+      });
+    });
+
+    document.getElementById("register-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const response = await fetch("http://localhost:5000/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ login_id: username, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        alert("User registered successfully!");
+        window.location.href = "login.html";
+      } else {
+        alert(data.error || "Registration failed");
+      }
+    });
+  </script>
+</body>
+</html>

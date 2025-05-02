@@ -1,0 +1,246 @@
+/* Styling Umum */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Georama-SemiBold';
+  src: url('font/static/Georama-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Georama-Semibold';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  text-align: center;
+  position: relative;
+}
+
+/* Video Background */
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Efek Blur pada Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4); /* Slight opacity to overlay */
+  backdrop-filter: blur(8px);
+  z-index: -1;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.fl-logo-img {
+  height: 50px;
+}
+
+/* Menu */
+.menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.menu a {
+  display: block;
+  padding: 10px;
+  color: black;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: #f4f4f4;
+}
+
+/* Hamburger */
+.navbar-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;  /* Ukuran ikon */
+  color: black; /* Pastikan warnanya hitam atau kontras */
+  cursor: pointer;
+}
+
+.navbar-toggle:hover {
+  color: #2575fc; /* Warna hover */
+}
+
+.navbar-toggle i {
+  color: black; /* Ubah warna ikon menjadi hitam */
+  font-size: 24px; /* Atur ukuran ikon */
+}
+
+/* Show Menu */
+.menu.visible {
+  display: block;
+}
+
+/* Container Login */
+.login-container {
+  background: rgba(255, 255, 255, 0.8);  /* Slight transparency */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 350px;
+  z-index: 1;
+}
+
+/* Judul */
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background: rgb(52, 136, 75);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: rgb(52, 136, 75);
+}
+
+/* Link register */
+p {
+  margin-top: 10px;
+}
+
+a {
+  color: rgb(52, 136, 75);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 768px) {
+  body {
+    padding: 0 10px; /* Add some padding to prevent content from touching the edges */
+  }
+
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .login-container {
+    width: 90%;  /* Make the login container take up 90% of the screen width on smaller screens */
+    padding: 25px;  /* Reduce padding for smaller screens */
+  }
+
+  h1 {
+    font-size: 24px;  /* Slightly reduce the font size for the title */
+  }
+
+  input {
+    font-size: 14px;  /* Slightly reduce the font size of input fields */
+  }
+
+  button {
+    font-size: 14px;  /* Adjust button text size for better fit */
+  }
+
+  .navbar-toggle {
+    font-size: 28px;  /* Increase the hamburger menu icon size for better touch interaction */
+  }
+}
+
+/* Media Queries for Small Screens (Mobile) */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;  /* Ensure the login container still fits on very small screens */
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 20px;  /* Further reduce the title font size */
+  }
+
+  input {
+    font-size: 14px;  /* Ensure input fields are still easy to interact with */
+  }
+
+  button {
+    font-size: 14px;  /* Adjust the button text size */
+  }
+}
+
+/* Media Queries for iPad or Larger Tablets (portrait mode) */
+@media (max-width: 1024px) {
+  .login-container {
+    width: 60%;  /* Adjust the width for tablets to be more centered */
+    padding: 30px;  /* Keep consistent padding for better spacing */
+  }
+
+  .navbar {
+    padding: 10px 30px;
+  }
+}
